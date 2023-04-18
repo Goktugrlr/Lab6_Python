@@ -1,26 +1,27 @@
+import math
+
 #Task 1
 n = int(input("Please enter a value for n: "))
 while True:
     x = int(input("Please enter a value for x: "))
     if x < 0:
-        print("x must not be negative number. Try again!")
+        print("x must not be negative number. Try again!")   #If x is negative,we can not apply that formula
     else:
         break
 
-factorial_results = lambda x: 1 if x == 0 else x * factorial_results(x-1)
+formula = lambda i: (n ** i) / math.factorial(i)
 
+resultList = [formula(i) for i in range(x + 1)]
 
-result = [(n**i)/factorial_results(i) for i in range(x+1)]
+result = sum(resultList)
 
-sum_result = sum(result)
-
-print(sum_result)
-
+print(result)
 
 
 #Task 2
 result = 0
 k = 1
+
 
 def summation(n):
     global result
@@ -34,9 +35,9 @@ def summation(n):
 
 
 while True:
-    n = int(input("Please enter a variable for summation as a constraint:"))
-    if n < 1:
+    constraint = int(input("Please enter a variable for summation as a constraint:"))
+    if constraint < 1:
         print("Summation step is starting from 1. You should enter 1 or higher:")
     else:
-        summation(n)
+        summation(constraint)
         break
